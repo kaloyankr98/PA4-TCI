@@ -3,6 +3,8 @@ import org.junit.Test;
 import java.time.LocalDate;
 
 import static org.mockito.Mockito.*;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class RaceResultsServiceTests {
     private Client client1 = mock(Client.class);
@@ -40,8 +42,8 @@ public class RaceResultsServiceTests {
         raceResultsService.send(boatRacesMessage);
         raceResultsService.send(f1RacesMessage);
 
-        verify(client1).receive(horseRacesMessage);
-        verify(client1).receive(f1RacesMessage); //client2 is subscribed to F1, should fail
+        assertThat(client2.receive(f1RacesMessage), is();
+        assertThat(client1.receive(f1RacesMessage), is(notNullValue())); //client2 is subscribed to F1, should fail
         verify(client1, never()).receive(boatRacesMessage);
     }
     @Test
