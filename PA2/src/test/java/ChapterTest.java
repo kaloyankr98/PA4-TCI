@@ -6,6 +6,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class ChapterTest {
+
     @Test(expected = IllegalArgumentException.class)
     public void exceptionIsThrownWhenAStringIsNotAdded(){
         String name = "First Chapter, Section 2";
@@ -13,11 +14,11 @@ public class ChapterTest {
 
         number.equals("1.3");
     }
+
     @Test(expected = NullPointerException.class)
     public void exceptionIsThrownWhenStringIsNull(){
         String name = null;
         String number = "1.2";
-
 
 
     }
