@@ -11,4 +11,15 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'pl.pragmatists:JUnitParams:1.1.1'
+    testImplementation 'org.mockito:mockito-core:2.7.22'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+}
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
 }
